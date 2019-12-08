@@ -5,7 +5,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt
+name: origin OpenWrt
 
 on: 
   release:
@@ -58,9 +58,13 @@ jobs:
 
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/coolsnowwolf/lede
-        REPO_BRANCH: master
-      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        #REPO_URL: https://github.com/coolsnowwolf/lede
+        #REPO_BRANCH: master
+      run: git clone https://github.com/openwrt/openwrt.git
+      #git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+    
+    - name: different approach
+      run: chmod +x diff.sh && ./diff.sh
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
