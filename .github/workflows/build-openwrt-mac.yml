@@ -42,9 +42,9 @@ jobs:
       working-directory: /Volumes/OpenWrt
       env: 
         REPO_URL: https://github.com/coolsnowwolf/lede.git 
-        #https://github.com/openwrt/openwrt
+                   #https://github.com/openwrt/openwrt
         REPO_BRANCH: master
-        #openwrt-18.06
+                     #openwrt-18.06
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /Volumes/OpenWrt/openwrt $GITHUB_WORKSPACE/openwrt
@@ -68,7 +68,7 @@ jobs:
         cd openwrt
         ./$DIY_SH
         make defconfig
-
+# 
 #    - name: SSH connection to Actions
 #      uses: P3TERX/debugger-action@master
 
