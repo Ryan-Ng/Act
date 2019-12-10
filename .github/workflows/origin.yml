@@ -7,7 +7,7 @@
 
 name: origin OpenWrt
 
-on: 
+#on: 
   release:
     types: [published]
   push:
