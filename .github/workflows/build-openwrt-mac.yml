@@ -13,8 +13,8 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - '.config'
+    #paths:
+     # - '.config'
 #  schedule:
 #    - cron: 0 8 * * 5
 #  watch:
@@ -64,7 +64,7 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
-        mv $DIY_SH openwrt
+      #mv $DIY_SH openwrt
         cd openwrt
         ./$DIY_SH
         make defconfig
