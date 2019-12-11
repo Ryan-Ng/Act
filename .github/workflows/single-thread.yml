@@ -90,14 +90,14 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Multi-thread compile
-      run: |
-        cd openwrt
-        echo -e "$(nproc) thread compile"
-        make -j$(nproc)
+    #- name: Multi-thread compile
+    #  run: |
+     #   cd openwrt
+     #   echo -e "$(nproc) thread compile"
+    #    make -j$(nproc)
 
     - name: Single-thread compile
-      if: failure()
+      #if: failure()
       run: |
         cd openwrt
         make -j1 V=s
