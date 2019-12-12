@@ -7,7 +7,7 @@
 
 name: Build OpenWrt (macOS)
 
-on: 
+#on: 
   release:
     types: [published]
   push:
