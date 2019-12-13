@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt
+name: Multi-thread
 
 on: 
   release:
@@ -84,12 +84,6 @@ jobs:
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc)
-
-    - name: Single-thread compile
-      if: failure()
-      run: |
-        cd openwrt
-        make -j1 V=s
 
     - name: Upload bin directory
       uses: actions/upload-artifact@master
