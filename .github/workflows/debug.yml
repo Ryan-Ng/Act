@@ -73,7 +73,7 @@ jobs:
       #if: failure()
       run: |
         cd openwrt
-        make target/linux/build -j1 V=s
+        make target/linux/compile -j1 V=s
         
     - name : Upload packages
       uses: actions/upload-artifact@master
