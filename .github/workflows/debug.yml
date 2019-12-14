@@ -8,17 +8,17 @@
 name: Single-thread
 
 on: 
-  release:
-    types: [published]
-  push:
-    branches: 
-      - master
-    paths:
-      - '.config'
+ # release:
+  #  types: [published]
+ # push:
+  #  branches: 
+   #   - master
+   # paths:
+    #  - '.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -57,21 +57,6 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Load custom configuration
-      env:
-        CONFIG_FILE: '.config'
-        DIY_SH: 'diy.sh'
-      run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_SH
-        cd openwrt
-        ../$DIY_SH
-        make defconfig
-
-#    - name: SSH connection to Actions
-#      uses: P3TERX/debugger-action@master
-
     - name: Download package
       run: |
         cd openwrt && make download -j8
@@ -88,8 +73,8 @@ jobs:
       #if: failure()
       run: |
         cd openwrt
-        make -j1 V=s
-
+        make target/linux/build -j1 V=s
+        
     - name : Upload packages
       uses: actions/upload-artifact@master
       if: always()
