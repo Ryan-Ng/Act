@@ -5,7 +5,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Single-thread
+name: package solo
 
 on: 
  # release:
