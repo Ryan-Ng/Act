@@ -82,7 +82,6 @@ jobs:
     - name: Multi-thread compile
       run: |
         cd openwrt
-      # echo -e "$(nproc) thread compile"
         make -j2
     
     - name : Upload packages
