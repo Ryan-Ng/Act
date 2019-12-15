@@ -6,21 +6,21 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt (macOS)
+name: Package solo (macOS)
 
 on: 
  # public
 #  release:
 #    types: [published]
-#  push:
-#    branches: 
-#      - master
-#    paths:
-#      - '.config'
+  push:
+    branches: 
+      - master
+    paths:
+      - 'pac.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-  watch:
-   types: [started]
+#  watch:
+#  types: [started]
 
 jobs:
   build:
@@ -59,7 +59,7 @@ jobs:
 
     - name: Load custom configuration
       env:
-        CONFIG_FILE: '.config'
+        CONFIG_FILE: 'pac.config'
         DIY_SH: 'diy.sh'
       run: |
         [ -e files ] && mv files openwrt/files
