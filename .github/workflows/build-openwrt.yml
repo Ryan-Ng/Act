@@ -82,7 +82,7 @@ jobs:
     - name: Multi-thread compile
       run: |
         cd openwrt
-        make -j2
+        make -j$(nproc)
     
     - name : Upload packages
       uses: actions/upload-artifact@master
