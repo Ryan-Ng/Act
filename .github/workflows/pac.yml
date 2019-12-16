@@ -83,11 +83,11 @@ jobs:
         echo -e "$(nproc) thread compile"
         make -j$(nproc)
 
- #   - name: Core-Package compile
-      #if: failure()
-    #  run: |
-     #   cd openwrt
-    # make target/linux/compile -j$(nproc)
+    - name: Single-Thread compile
+      if: failure()
+      run: |
+        cd openwrt
+        make -j1 V=s 
     #   chmod +x pac.sh
     #    ./pac.sh
         
