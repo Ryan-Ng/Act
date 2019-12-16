@@ -5,7 +5,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: package solo
+name: official package solo
 
 on: 
  # release:
@@ -54,10 +54,10 @@ jobs:
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: cd openwrt && ./scripts/feeds update packages
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds install -a -p packages
 
     - name: Load custom configuration
       env:
