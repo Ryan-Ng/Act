@@ -10,15 +10,15 @@ name: package solo
 on: 
  # release:
   #  types: [published]
-  push:
-    branches: 
-      - master
-    paths:
-      - 'pac.config'
+  #push:
+    #branches: 
+      #- master
+    #paths:
+      #- 'pac.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
