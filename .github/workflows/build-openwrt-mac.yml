@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Package solo (macOS)
+name: (macOS)
 
 on: 
  # public
@@ -44,7 +44,8 @@ jobs:
     - name: Clone source code
       working-directory: /Volumes/OpenWrt
       env: 
-        REPO_URL: https://github.com/openwrt/openwrt
+        REPO_URL: https://github.com/coolsnowwolf/lede
+        #https://github.com/openwrt/openwrt
         REPO_BRANCH: master
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
@@ -59,7 +60,7 @@ jobs:
 
     - name: Load custom configuration
       env:
-        CONFIG_FILE: 'pac.config'
+        CONFIG_FILE: '.config'
         DIY_SH: 'diy.sh'
       run: |
         [ -e files ] && mv files openwrt/files
